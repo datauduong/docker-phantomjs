@@ -16,12 +16,12 @@ ENV PHANTOMJS_DIR=/home/phantomjs
 RUN apt-get update -y
 RUN apt-get install -y libfreetype6-dev libfontconfig1-dev wget bzip2
 
-RUN wget --no-check-certificate https://bitbucket.org/ariya/phantomjs/downloads/${PHANTOMJS_VERSION}.tar.bz2
+RUN wget --no-check-certificate https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOMJS_VERSION.tar.bz2
 RUN tar xvf ${PHANTOMJS_VERSION}.tar.bz2
-RUN mv ${PHANTOMJS_VERSION}/bin/phantomjs /usr/local/bin/
+RUN mv $PHANTOMJS_VERSION/bin/phantomjs /usr/local/bin/
 RUN rm -rf phantom*
 
-RUN mkdir -p ${PHANTOMJS_DIR}
+RUN mkdir -p $PHANTOMJS_DIR
 RUN echo '"use strict"; \n\
   console.log("Hello, world!"); + \n\
   console.log("using PhantomJS version " + \n\
