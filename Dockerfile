@@ -2,19 +2,14 @@
 # http://phantomjs.org/
 #
 # Usage
-#  version check
-#    docker run vitr/phantomjs phantomjs -v
-#  'hello world' example
+#  'hello world' and version check (default script)
 #    docker run vitr/phantomjs
-#  mount your script
+#  mount your own script
 #    docker run -v `pwd`/myscript.js:/home/phantomjs/script.js vitr/phantomjs
-#  mount your dir
-#    docker run -v `pwd`/myscripts:/home/phantomjs/ vitr/phantomjs phantomjs myscript1.js
 
 FROM debian:jessie
 MAINTAINER vitr http://vit.online
 
-# Env
 ENV PHANTOMJS_VERSION=phantomjs-2.1.1-linux-x86_64 
 ENV PHANTOMJS_DIR=/home/phantomjs
 
@@ -27,7 +22,14 @@ RUN mv $PHANTOMJS_VERSION/bin/phantomjs /usr/local/bin/
 RUN rm -rf phantom*
 
 RUN mkdir -p /home/phantomjs
-RUN echo $' use strict";\n console.log('Hello, world!');\n phantom.exit();' > $PHANTOMJS_DIR/script.js
+RUN echo '"use strict"; \n\
+  console.log("Hello, world!"); + \n\
+  console.log("using PhantomJS version " + \n\
+  phantom.version.major + "." + \n\
+  phantom.version.minor + "." + \n\
+  phantom.version.patch); \n\
+  phantom.exit();' \
+  > $PHANTOMJS_DIR/script.js
 
 WORKDIR $PHANTOMJS_DIR
 
