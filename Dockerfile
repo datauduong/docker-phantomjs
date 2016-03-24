@@ -10,8 +10,8 @@
 FROM debian:jessie
 MAINTAINER vitr http://vit.online
 
-ENV PHANTOMJS_VERSION=phantomjs-2.1.1-linux-x86_64 
-ENV PHANTOMJS_DIR=/home/phantomjs
+ENV PHANTOMJS_VERSION phantomjs-2.1.1-linux-x86_64 
+ENV PHANTOMJS_DIR /home/phantomjs
 
 RUN apt-get update -y
 RUN apt-get install -y libfreetype6-dev libfontconfig1-dev wget bzip2
