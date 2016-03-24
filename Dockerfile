@@ -3,9 +3,9 @@
 #
 # Usage
 #  'hello world' and version check (default script)
-#    docker run vitr/phantomjs
+#    docker run --rm vitr/phantomjs
 #  mount your own script
-#    docker run -v `pwd`/myscript.js:/home/phantomjs/script.js vitr/phantomjs
+#    docker run --rm -v `pwd`/myscript.js:/home/phantomjs/script.js vitr/phantomjs
 
 FROM debian:jessie
 MAINTAINER vitr http://vit.online
