@@ -1,2 +1,2 @@
 # docker-phantomjs
-PhantomJS image primary created to support CasperJS
+PhantomJS image primarily created to support CasperJS
