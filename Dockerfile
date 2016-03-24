@@ -1,21 +1,21 @@
-# phantomjs
+# PhantomJS http://phantomjs.org/
 #
 # Usage
-# docker run vitr/casperjs phantomjs -v
-# docker run vitr/casperjs casperjs --version
-# docker run -v `pwd`/myscript.js:/home/phantomjs/script.js vidiben/phantomjs
-# hello world 
-# docker run vidiben/phantomjs
-
-#   docker run cmfatih/phantomjs /usr/bin/phantomjs -v
-#   docker run cmfatih/phantomjs /usr/bin/casperjs --version
-#   docker run -v `pwd`:/mnt/test cmfatih/phantomjs /usr/bin/phantomjs /mnt/test/test.js
+#  version check
+#    docker run vitr/phantomjs phantomjs -v
+#  'hello world' example
+#    docker run vitr/phantomjs
+#  mount your script
+#    docker run -v `pwd`/myscript.js:/home/phantomjs/script.js vitr/phantomjs
+#  mount your dir
+#    docker run -v `pwd`/myscripts:/home/phantomjs/ vitr/phantomjs phantomjs myscript1.js
 
 FROM debian:jessie
 MAINTAINER vitr http://vit.online
 
 # Env
 ENV PHANTOMJS_VERSION phantomjs-2.1.1-linux-x86_64
+ENV PHANTOMJS_DIR /home/phantomjs
 
 RUN apt-get update -y
 RUN apt-get install -y libfreetype6-dev libfontconfig1-dev wget bzip2
@@ -26,8 +26,8 @@ RUN mv $PHANTOMJS_VERSION/bin/phantomjs /usr/local/bin/
 RUN rm -rf phantom*
 
 RUN mkdir -p /home/phantomjs
-RUN echo $' use strict";\n console.log('Hello, world!');\n phantom.exit();' > script.js
+RUN echo $' use strict";\n console.log('Hello, world!');\n phantom.exit();' > $PHANTOMJS_DIR/script.js
 
-WORKDIR /home/phantomjs
+WORKDIR $PHANTOMJS_DIR
 
 ENTRYPOINT ["phantomjs", "script.js"]
