@@ -1,4 +1,5 @@
-# PhantomJS http://phantomjs.org/
+# PhantomJS 
+# http://phantomjs.org/
 #
 # Usage
 #  version check
@@ -14,8 +15,8 @@ FROM debian:jessie
 MAINTAINER vitr http://vit.online
 
 # Env
-ENV PHANTOMJS_VERSION phantomjs-2.1.1-linux-x86_64
-ENV PHANTOMJS_DIR /home/phantomjs
+RUN export PHANTOMJS_VERSION phantomjs-2.1.1-linux-x86_64
+RUN export PHANTOMJS_DIR /home/phantomjs
 
 RUN apt-get update -y
 RUN apt-get install -y libfreetype6-dev libfontconfig1-dev wget bzip2
