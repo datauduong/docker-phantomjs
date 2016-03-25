@@ -11,6 +11,10 @@ PhantomJS (http://phantomjs.org/) image (https://hub.docker.com/r/vitr/phantomjs
 mount your own script
 
     docker run --rm -v `pwd`/myscript.js:/home/phantomjs/script.js vitr/phantomjs
+    
+run in REPL mode, see more details here http://phantomjs.org/repl.html
+
+    docker run -ti --rm --entrypoint="phantomjs" vitr/phantomjs
 
 #### Some key points
 
