@@ -1,6 +1,6 @@
 # PhantomJS Docker Image
 
-PhantomJS (http://phantomjs.org/) image ([vitr/phantomjs](https://hub.docker.com/r/vitr/phantomjs/)) primarily created to support CasperJS (http://casperjs.org/)
+PhantomJS (http://phantomjs.org/) image (https://hub.docker.com/r/vitr/phantomjs/) primarily created to support CasperJS (http://casperjs.org/)
 
 #### PhantomJS Version: 2.1.1
 
