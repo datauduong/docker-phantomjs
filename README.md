@@ -23,3 +23,6 @@ This image contains ENTRYPOINT and will run as an executable, therefore run it w
 The image includes a sample script, which is executed by default if you don't mount your script with the `-v` option during `docker run`. It prints famous `Hello, world!` and PhantomJS version.
 
 In addition, have a look at related image [vitr/casperjs](https://hub.docker.com/r/vitr/casperjs/), which is build on top of this one. CasperJS is a testing framework tailored for PhantomJS. Personally, I use it for UA (user acceptance) testing of websites.
+
+---------------
+[![Analytics](https://vitr-analytics.appspot.com/UA-75628680-1/docker-phantomjs?flat-gif)](https://github.com/vitr/google-analytics-beacon/)
